@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfólio de Mauro Manjate</title>
+    <style>
+        body {
+            font-family: 'Times New Roman', Times, serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to right, #141e30, #243b55);
+            color: #fff;
+            overflow-x: hidden;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+            background: #007BFF;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            margin: 0;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 1rem;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav ul li {
+            display: inline;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        nav ul li a:hover {
+            text-decoration: underline;
+        }
+
+        .hero {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            padding: 2rem;
+            background: linear-gradient(to right, #1f4037,#150142);
+        }
+
+        .hero .photo {
+            position: relative;
+            width: 250px;
+            height: 250px;
+            margin-right: 2rem;
+            border-radius: 50%;
+            overflow: hidden;
+            background: #fff;
+            animation: fadeIn 1.5s ease;
+        }
+
+        .hero .photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .hero .photo::before {
+            content: "Designer";
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #007BFF;
+            color: white;
+            font-size: 1.5rem;
+            font-weight: bold;
+            transition: transform 0.5s;
+            transform: rotateY(0deg);
+            backface-visibility: hidden;
+        }
+
+        .hero .photo:hover::before {
+            transform: rotateY(180deg);
+        }
+
+        .hero .photo img {
+            display: block;
+            transform: rotateY(180deg);
+            transition: transform 0.5s;
+            backface-visibility: hidden;
+        }
+
+        .hero .photo:hover img {
+            transform: rotateY(0deg);
+        }
+
+        .hero-content {
+            max-width: 600px;
+        }
+
+        .hero-content h2 {
+            color: #FFD700;
+            margin-bottom: 1rem;
+            font-size: 2rem;
+        }
+
+        .hero-content p {
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .hero-content a {
+            display: inline-block;
+            margin: 0.5rem 0;
+            padding: 0.8rem 1.5rem;
+            background: #FFD700;
+            color: #141e30;
+            font-size: 1rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background 0.3s, transform 0.3s;
+        }
+
+        .hero-content a:hover {
+            background: #e0b500;
+            transform: scale(1.05);
+        }
+
+        .section {
+            max-width: 900px;
+            margin: 2rem auto;
+            padding: 1rem;
+            background: rgba(2, 2, 2, 0.1);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+            border-radius: 8px;
+        }
+
+        .section h2 {
+            color: #FFD700;
+            margin-bottom: 1rem;
+        }
+
+        .slider {
+            position: relative;
+            max-width: 600px; /* Reduzi o tamanho */
+            margin: auto;
+            overflow: hidden;
+            border-radius: 8px;
+        }
+
+        .slide {
+            display: none;
+        }
+
+        .slide img {
+            width: 100%;
+            height: auto;
+        }
+
+        .active {
+            display: block;
+        }
+
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .contact-form input,
+        .contact-form textarea,
+        .contact-form button {
+            width: 100%;
+            padding: 0.8rem;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+
+        .contact-form button {
+            background: #FFD700;
+            color: #141e30;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .contact-form button:hover {
+            background: #e0b500;
+        }
+
+        .color-switcher {
+            display: flex;
+            gap: 0.5rem;
+            margin: 1rem 0;
+        }
+
+        .color-switcher div {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+
+        .color1 { background: #FF6347; }
+        .color2 { background: #4682B4; }
+        .color3 { background: #32CD32; }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Mauro Manjate</h1>
+        <nav>
+            <ul>
+                <li><a href="#sobre">Sobre</a></li>
+                <li><a href="#habilidades">Habilidades</a></li>
+                <li><a href="#projetos">Projetos</a></li>
+                <li><a href="#contacto">Contato</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="hero">
+        <div class="photo">
+            <img src="morou.png" alt="Sua Foto">
+        </div>
+        <div class="hero-content">
+            <h2>Bem-vindo ao meu portfólio</h2>
+            <p>Sou Mauro Manjate, um estudante de TI e designer gráfico apaixonado por criar e inovar. Explore meu trabalho e entre em contato para colaborar!</p>
+            <a href="#contato">Entrar em Contato</a>
+            <a href="CVAtualizado.pdf" download class="btn-download-cv">Download do Meu CV</a>
+        </div>
+    </div>
+
+    <div id="sobre" class="section">
+        <h2>Sobre Mim</h2>
+        <p>Sou Mauro Manjate, um estudante dedicado de Tecnologias de Informação com sólida formação em áreas técnicas e criativas. Com certificações em Informática, Eletricidade Instaladora, Serralheria Civil, e Inglês Intensivo, desenvolvi habilidades versáteis que me permitem atender diversas demandas profissionais.</p>
+        <p>Minha paixão por design gráfico e edição de imagem me levou a criar cartazes e materiais publicitários para diferentes clientes, consolidando minha experiência no uso de ferramentas como Adobe Photoshop, Illustrator e Premiere Pro. Além disso, minhas competências em modelagem 3D com Blender e no uso de ferramentas de produtividade (Excel, Word, PowerPoint) reforçam minha capacidade de resolver problemas e entregar resultados de alta qualidade.</p>
+        <p>Com uma mentalidade empreendedora, também administro uma marca de roupas onde aplico minha criatividade no design de estampagens. Sou apto a colaborar em projetos desafiadores, comprometido com prazos e com a satisfação do cliente. Entre em contato para transformar ideias em realidade!</p>
+    </div>
+    <div id="habilidades" class="section">
+        <h2>Habilidades e Competências</h2>
+        <ul>
+            <li>Adobe Photoshop, Illustrator, Premiere Pro</li>
+            <li>Modelagem 3D com Blender</li>
+            <li>Excel, Word, Powerpoint, Acess (2023)</a></li>
+            <li><a href="electricidade.PDF " target="_blank">Eletricidade Instaladora (2022)</a></li>
+            <li><a href="serra.PDF" target="_blank">Serralheria Civil (2022)</a></li>
+            <li><a href="ingles.PDF" target="_blank">Curso de Inglês Intensivo (2022)</a></li>
+            <li><a href="decima2.PDF" target="_blank">conclusăo da 12ª classe(2022)</a></li>
+            <li><a href="Decima.PDF" target="_blank">conclusăo da 10ª classe(2022)</a></li>
+
+        </ul>
+    </div>
+
+    <div id="projetos" class="section">
+        <h2>Projetos Realizados</h2>
+        <div class="slider">
+            <div class="slide active"><img src="Picsart_24-08-03_13-05-45-995.jpg" alt="Cartaz 1"></div>
+            <div class="slide"><img src="PROMOOOOOOOU.jpg" alt="Cartaz 2"></div>
+            <div class="slide"><img src="finaleeee.jpg" alt="Cartaz 5"></div>
+            <div class="slide"><img src="babdjudaaaaaa.jpg" alt="Cartaz 6"></div>
+            <div class="slide"><img src="cartaz.jpg" alt="Cartaz 7"></div>
+        </div>
+    </div>
+    <div id="contacto" class="section">
+    <h2>Contacto</h2>
+    <p>Telefone: <a href="tel:+258847632050">847632050</a></p>
+    <a href="Maurostiven72@gmail.com" class="btn">Enviar Email</a>
+    </div>
+    <div id="entre em contacto" class="section">
+        <h2>entre em Contacto</h2>
+        <form class="contact-form">
+            <input type="text" placeholder="Seu Nome" required>
+            <input type="email" placeholder="Seu Email" required>
+            <textarea placeholder="Sua Mensagem" required></textarea>
+            <button type="submit">Enviar Mensagem</button>
+        </form>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Mauro Manjate. Todos os direitos reservados.</p>
+    </footer>
+
+    <script>
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+
+        function showSlide(index) {
+            slides.forEach((slide, i) => {
+                slide.classList.toggle('active', i === index);
+            });
+        }
+
+        setInterval(() => {
+            currentSlide = (currentSlide + 1) % slides.length;
+            showSlide(currentSlide);
+        }, 3000);
+    </script>
+</body>
+</html>
